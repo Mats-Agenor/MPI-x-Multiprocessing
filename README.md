@@ -40,9 +40,11 @@ After execution, if both timing files are present, the script generates a plot (
 
 **Performance Comparison**
 
-Empirical results indicate that the `mpi4py` implementation outperforms the `multiprocessing` approach, particularly as the number of processes increases. This performance gain is attributed to MPI's efficient inter-process communication and its ability to operate across multiple nodes in a distributed system. In contrast, `multiprocessing` is confined to a single machine's resources, limiting its scalability.
+Empirical results indicate that the `mpi4py` implementation outperforms the `multiprocessing` approach in certain scenarios, especially when dealing with smaller problem sizes, such as \$N = 1e6\$, and as the number of processes increases. This performance gain is attributed to MPI's efficient inter-process communication and its ability to operate across multiple nodes in a distributed system. In contrast, `multiprocessing` is confined to the resources of a single machine, limiting its scalability.
 
-Furthermore, `mpi4py` leverages direct memory access patterns and optimized communication protocols, leading to reduced overhead and faster execution times compared to the shared-memory model of `multiprocessing`.
+However, when scaling up to larger problem sizes, like \$N = 1e9\$, the `multiprocessing` approach can become more efficient. This is because `multiprocessing` can leverage hyper-threading capabilities of modern CPUs, utilizing more threads than the physical cores available. In such cases, `multiprocessing` can exploit all logical cores provided by hyper-threading, potentially leading to better performance on a single machine. On the other hand, `mpi4py` is typically limited to the number of physical cores or slots allocated, which might not fully utilize hyper-threaded resources.
+
+Therefore, while `mpi4py` excels in distributed environments and with smaller workloads due to its efficient communication and scalability, `multiprocessing` can outperform it in large-scale computations on hyper-threaded, multi-core systems by fully utilizing all available logical cores. The choice between the two approaches should be guided by the specific problem size, the underlying hardware architecture, and the desired scalability.
 
 **Ease of Use**
 
