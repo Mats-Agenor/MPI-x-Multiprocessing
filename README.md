@@ -1,4 +1,31 @@
 # MPI-x-Multiprocessing
+------------------
+For run, execute this comand:
+
+
+`python3 benchmark_integral.py`
+
+`mpiexec -n 2 python benchmark_integral.py`
+
+`mpiexec -n 4 python benchmark_integral.py`
+
+`mpiexec -n 6 python benchmark_integral.py`
+
+`mpiexec -n 8 python benchmark_integral.py`
+
+`mpiexec -n 10 python benchmark_integral.py`
+
+`mpiexec -n 12 python benchmark_integral.py`
+
+`mpiexec -n 14 python benchmark_integral.py`
+
+`mpiexec -n 16 python benchmark_integral.py`
+
+`mpiexec -n 18 python benchmark_integral.py`
+
+`mpiexec -n 20 python benchmark_integral.py`
+
+-----------------
 In this project, I set out to compare two parallel computing approaches in Python—`multiprocessing` and `mpi4py`—by implementing a numerical integration of the sine function over the interval \[0, π] using the Riemann sum method with a substantial number of subdivisions (N = 1e9). The primary goal was to assess performance differences and evaluate the ease of implementation between these two methods.
 
 **Implementation Overview**
