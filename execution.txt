@@ -1,0 +1,14 @@
+python3 benchmark_integral.py
+
+mpiexec -n 2 python benchmark_integral.py
+mpiexec -n 4 python benchmark_integral.py
+mpiexec -n 6 python benchmark_integral.py
+mpiexec -n 8 python benchmark_integral.py
+mpiexec -n 10 python benchmark_integral.py
+mpiexec -n 12 python benchmark_integral.py
+mpiexec -n 14 python benchmark_integral.py
+mpiexec -n 16 python benchmark_integral.py
+mpiexec -n 18 python benchmark_integral.py
+mpiexec -n 20 python benchmark_integral.py
+
+
